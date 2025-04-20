@@ -25,7 +25,7 @@ const initialValues = {
 export default function ContactForm() {
   const dispatch = useDispatch();
 
-  const handlSubmit = (values, form) => {
+  const handleSubmit = (values, form) => {
     dispatch(addContact(values));
     form.resetForm();
   };
@@ -34,7 +34,7 @@ export default function ContactForm() {
     <>
       <Formik
         initialValues={initialValues}
-        onSubmit={handlSubmit}
+        onSubmit={handleSubmit}
         validationSchema={FeedbackSchema}>
         <Form className={css.form}>
           <label htmlFor="name" className={css.label}>
