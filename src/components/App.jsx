@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import './App.module.css';
 import ContactForm from './contactForm/ContactForm';
 import ContactList from './contactList/ContactList';
 import SearchBox from './searchBox/SearchBox';
+=======
+import './App.module.css'
+import ContactForm from './contactForm/ContactForm'
+import ContactList from "./contactList/ContactList";
+import SearchBox from "./SearchBox/SearchBox";
+>>>>>>> 9ffa3ea8b3bc68b99b83c5359e1a6af6d8e1c51a
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../redux/contactsOps';
