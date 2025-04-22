@@ -1,17 +1,21 @@
-import './App.module.css'
-import ContactForm from './contactForm/ContactForm'
-import ContactList from "./contactList/ContactList";
-import SearchBox from "./searchBox/SearchBox";
+import './App.module.css';
+import ContactForm from './contactForm/ContactForm';
+import ContactList from './contactList/ContactList';
+import SearchBox from './searchBox/SearchBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../redux/contactsOps';
-import { selectContact, selectIsError, selectIsLoading } from '../redux/selector';
+import {
+  selectContact,
+  selectIsError,
+  selectIsLoading,
+} from '../redux/contactsSlice';
 
 export default function App() {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContact)
-  const isLoading = useSelector(selectIsLoading)
-  const isError = useSelector(selectIsError)
+  const contacts = useSelector(selectContact);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -19,14 +23,13 @@ export default function App() {
 
   return (
     <>
-     <h1>Phonebook</h1>
-    <ContactForm/>
-    {isError && <p>Not founs</p>}
-    {isLoading && <p>Loading...</p>}
-    {contacts.length > 0 && <SearchBox/>}
-    {contacts.length > 0 && <ContactList />}
+      <h1>Phonebook</h1>
+      <ContactForm />
+      {isError && <p>Not founs</p>}
+      {isLoading && <p>Loading...</p>}
+
+      {contacts.length > 0 && <SearchBox />}
+      {contacts.length > 0 && <ContactList />}
     </>
   );
 }
-
-

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Contact from "../contact/Contact";
 import css from "./ContactList.module.css";
 import { deleteContact } from "../../redux/contactsOps";
-import { selectVisibleContacts } from "../../redux/selector";
+import { selectFilteredContacts } from "../../redux/contactsSlice";
 
 const formatPhoneNumber = (phone) => {
   return phone.replace(/\sx\d+$/, "");
@@ -11,7 +11,7 @@ const formatPhoneNumber = (phone) => {
 export default function ContactList() {
   const dispatch = useDispatch();
 
-  const visibleContacts = useSelector(selectVisibleContacts);
+  const visibleContacts = useSelector(selectFilteredContacts);
   console.log(visibleContacts);
 
   const handleDelete = (id) => {
